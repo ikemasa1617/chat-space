@@ -1,0 +1,60 @@
+.chat
+  .main-header
+    .current-group
+      .current-group__name
+        GroupName
+      %ul.current-group__members
+        Member：
+        %li.member
+          name
+        %li.member
+          name
+        %li.member
+          name
+    .edit-btn
+      Edit
+  .messages
+    .message
+      .message-info
+        .message-info__user-name
+          UserName1
+        .message-info__date
+          2019/4/28
+      .message-content
+        .message-content__text
+          Hello World!!
+    .message
+      .message-info
+        .message-info__user-name
+          UserName2
+        .message-info__date
+          2019/4/28
+      .message-content
+        .message-content__text
+          Hello World!!
+    .message
+      .message-info
+        .message-info__user-name
+          UserName3
+        .message-info__date
+          2019/4/29
+      .message-content
+        .message-content__text
+          Hello World!!
+    .message
+      .message-info
+        .message-info__user-name
+          UserName4
+        .message-info__date
+          2019/4/29
+      .message-content
+        .message-content__text
+          Hello World!!
+  .form
+    %form
+      %input.form__message{placeholder: "type a message", type: "text"}
+      .form__cover
+        %label.form__cover__image
+          = fa_icon 'picture-o', class: 'icon'
+          %input.hidden{type: 'file'}
+      %input.form__submit{type: 'submit', value: 'Send'}
