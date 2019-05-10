@@ -1,0 +1,103 @@
+.chat {
+  width: calc(100% - 300px);
+  .main-header{
+    box-sizing: border-box;
+    height: 100px;
+    padding: 0 40px;
+    border-bottom: solid 1px $main_header_bottom_color;
+    .current-group {
+      float: left;
+      &__name {
+        color: $group_name_color;
+        font-size: 20px;
+        margin-top: 35px;
+      }
+      &__members{
+        color: $message_gray_light;
+        display: flex;
+        font-size: 12px;
+        margin-top: 15px;
+        .member{
+          display: inline-block;
+          padding-right: 5px;
+        }
+      }
+    }
+    .edit-btn{
+      border: 1px solid $chat_blue_light;
+      color: $chat_blue_light;
+      float: right;
+      height: 40px;
+      line-height: 40px;
+      margin-top: 28px;
+      padding: 0 20px;
+    }
+   }
+
+    .messages{
+      background-color: $messages_background_color;
+      box-sizing: border-box;
+      height: calc(100% - 100px - 90px);
+      padding: 46px 40px 0;
+      .message{
+        .message-info{
+          display: flex;
+          &__user-name{
+            color: $message_color;
+            font-size: 16px;
+            font-weight: bold;
+          }
+          &__date{
+            color: $message_gray_light;
+            font-size: 12px;
+            padding-left: 10px;
+          }
+        }
+        .message-content{
+          margin-top: 10px;
+          &__text{
+            color: $message_color;
+            font-size: 14px;
+            margin-bottom: 40px;
+          }
+        }
+      }
+    }
+
+    .form {
+      background-color: $form_gray_dark;
+      box-sizing: border-box;
+      height: 90px;
+      padding: 20px 50px 20px 40px;
+      &__message {
+        border: none;
+        float: left;
+        height: 50px;
+        width: calc(100% - 168px);
+        padding: 0 40px 0 10px;
+      }
+      &__cover {
+        position: relative;
+        float: left;
+        height: 50px;
+        &__image {
+          position: absolute;
+          right: 10px;
+          font-size: 20px;
+          line-height: 50px;
+        }
+        .hidden {
+          display: none;
+        }
+      }
+      &__submit {
+        background-color: $chat_blue_light;
+        border: none;
+        color: $white;
+        font-size: 16px;
+        height: 50px;
+        margin-left: 15px;
+        padding: 0 30px;
+      }
+    }
+ }
