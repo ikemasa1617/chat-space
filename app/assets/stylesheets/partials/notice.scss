@@ -1,0 +1,12 @@
+.notification{
+  .notice{
+    background-color: $chat_blue_light;
+    color: $white;
+    text-align: center;
+  }
+  .alert {
+    background-color: $alert_color;
+    color: $white;
+    text-align: center;
+  }
+}
