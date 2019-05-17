@@ -27,10 +27,10 @@
   .groups{
     height: calc(100vh - 100px);
     background-color: $sidebar_blue_light;
-    padding: 0 20px;
+    padding: 20px 20px 0;
     .group{
       box-sizing: border-box;
-      padding: 20px 0 40px;
+      margin-bottom:40px;
       &__name{
         font-size: 15px;
         font-weight: bold;
@@ -40,7 +40,6 @@
         font-size: 11px;
         font-weight: bold;
         margin-top: 5px;
-        margin-bottom: 40px;
         color: $white;
       }
     }
