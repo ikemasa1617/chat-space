@@ -2,5 +2,26 @@
 
   = render 'shared/sidebar'
 
-  = render 'shared/chat'
-  
+  .chat
+    .main-header
+      .current-group
+        .current-group__name
+          = @group.name
+        %ul.current-group__members
+          Member：
+          %li.member
+            - @group.users.each do |user|
+              = user.name
+      .edit-btn
+        = link_to edit_group_path(@group) do
+          Edit
+    .messages
+      = render @messages   
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :body, class: 'form__message', placeholder: 'type a message'
+        .form__cover
+          = f.label :image, class: 'form__cover__image' do
+            = fa_icon 'picture-o',class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
