@@ -2,17 +2,15 @@
   .main-header
     .current-group
       .current-group__name
-        GroupName
+        = @group.name
       %ul.current-group__members
         Member：
         %li.member
-          name
-        %li.member
-          name
-        %li.member
-          name
+          - @group.users.each do |user|
+            = user.name
     .edit-btn
-      Edit
+      = link_to edit_group_path(@group) do
+        Edit
   .messages
     .message
       .message-info
