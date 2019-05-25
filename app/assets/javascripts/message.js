@@ -37,12 +37,13 @@ $(function(){
       var html = buildHTML(message);
       $('.messages').append(html);
       $('.messages').animate({scrollTop: $(".messages")[0].scrollHeight}, 'fast');
-      $('.form__message').val('');
-      $('.hidden').val('');
-      $('.form__submit').prop('disabled', false);
+      $('#new_message')[0].reset();
     })
     .fail(function() {
       alert('error');
     })
-  })
+    .always(function(){
+      $('.form__submit').prop('disabled', false);
+    })
+  });
 });
