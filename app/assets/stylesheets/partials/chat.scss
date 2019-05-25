@@ -25,13 +25,15 @@
     }
     .edit-btn{
       border: 1px solid $chat_blue_light;
-      color: $chat_blue_light;
       float: right;
       height: 40px;
       line-height: 40px;
       margin-top: 28px;
       padding: 0 20px;
-    }
+      &__link{
+        color: $chat_blue_light;
+      }
+     }
    }
 
     .messages{
@@ -41,6 +43,7 @@
       padding: 46px 40px 0;
       overflow: scroll;
       .message{
+        padding-bottom: 40px;
         .message-info{
           display: flex;
           &__user-name{
@@ -48,7 +51,7 @@
             font-size: 16px;
             font-weight: bold;
           }
-          &__date{
+          &__data{
             color: $message_gray_light;
             font-size: 12px;
             padding-left: 10px;
@@ -59,7 +62,7 @@
           &__text{
             color: $message_color;
             font-size: 14px;
-            margin-bottom: 40px;
+            margin-bottom: 10px;
           }
         }
       }
