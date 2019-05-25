@@ -37,14 +37,12 @@ $(function(){
       var html = buildHTML(message);
       $('.messages').append(html);
       $('.messages').animate({scrollTop: $(".messages")[0].scrollHeight}, 'fast');
-    })
-    .fail(function() {
-      alert('error');
-    })
-    .always(function(){
       $('.form__message').val('');
       $('.hidden').val('');
       $('.form__submit').prop('disabled', false);
+    })
+    .fail(function() {
+      alert('error');
     })
   })
 });
