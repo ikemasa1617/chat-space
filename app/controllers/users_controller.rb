@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     member_ids = Group.find(params[:group_id]).user_ids
    else
     member_ids = []
+    member_ids << current_user.id
    end
    
    @users = User.where('name LIKE(?)',"%#{params[:keyword]}%").where.not(id: member_ids)
