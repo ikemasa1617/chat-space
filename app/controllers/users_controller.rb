@@ -1,7 +1,14 @@
 class UsersController < ApplicationController
-
-  def index
-    @users = User.where('name LIKE(?)',"%#{params[:keyword]}%").where.not(id: current_user.id)
+  
+ def index
+    
+   if params[:group_id].present?
+    member_ids = Group.find(params[:group_id]).user_ids
+   else
+    member_ids = []
+   end
+   
+   @users = User.where('name LIKE(?)',"%#{params[:keyword]}%").where.not(id: member_ids)
     respond_to do |format|
       format.html
       format.json
@@ -25,4 +32,6 @@ class UsersController < ApplicationController
   def account_update_params
     params.require(:user).permit(:name, :email)
   end
+
+  
 end
