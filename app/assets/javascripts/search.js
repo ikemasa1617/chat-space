@@ -39,7 +39,6 @@ $(function() {
 
     $('.chat-group-user__selected_user_id').each(function(){
       selected_users.push($(this).attr("value"));
-      console.log(selected_users)
     });
     
 
