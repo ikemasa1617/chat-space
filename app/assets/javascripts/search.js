@@ -22,7 +22,7 @@ $(function() {
   
   function appendMembers(user_name, user_id){
     var html = `<div class='chat-group-user clearfix js-chat-member' id='${user_id}'>
-                  <input name='group[user_ids][]' type='hidden' value="${user_id}">
+                  <input name='group[user_ids][]' type='hidden' value='${user_id}' class="chat-group-user__selected_user_id">
                   <p class='chat-group-user__name'>${user_name}</p>
                   <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-member-id="${user_id}" data-member-name="${user_name}">
                   削除
@@ -34,12 +34,20 @@ $(function() {
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
     var group_id = $("#user-search-field").attr('data-id')
+    var selected_users = [];
+    selected_users.length = 0;
+
+    $('.chat-group-user__selected_user_id').each(function(){
+      selected_users.push($(this).attr("value"));
+      console.log(selected_users)
+    });
+    
 
     if (input.length !== 0){
       $.ajax({
         type: 'GET',
         url: '/users',
-        data: {keyword: input, group_id: group_id},
+        data: {keyword: input, selected_users: selected_users, group_id: group_id},
         dataType: 'json'
     })
 
@@ -65,6 +73,7 @@ $(function() {
 
   $(function(){
     $("#user-search-result").on("click", '.user-search-add', function(){
+      $('#chat-group-users').val();
       var user_name = $(this).data("user-name");
       var user_id = $(this).data("user-id");
       $(this).parent().remove();
